@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fotomosaic</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="wrapper">
+        <h1 class="title">Fotomosaic:</h1>
+        <form class="form">
+          <input type="file" name="photos" id="input" multiple />
+          <button type="button" id="fill">fill photos</button>
+          <button type="button" id="switchBtn">save/work</button>
+          <button type="button" onclick="location.reload()">reset</button>
+        </form>
+      </div>
+    </header>
+    <main class="main">
+      <div class="wrapper">
+        <div id="table"></div>
+      </div>
+    </main>
+    <div class="change">
+      <input type="file" id="changeInput" />
+      <button type="button" id="changeBtn">change</button>
+      <button type="button" id="closeBtn">X</button>
+    </div>
+  </body>
+  <script src="/js/index.js"></script>
+</html>
