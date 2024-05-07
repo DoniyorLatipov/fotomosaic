@@ -20,9 +20,12 @@
 
 .pic {
   grid-column: span 2;
-  background: gray;
+  background: gray 50% 50%;
   background-size: cover;
-  background-position: center;
+}
+
+.selected {
+  outline: rgb(0, 0, 0) solid 3px;
 }
 
 .smallPic {
@@ -33,7 +36,10 @@
   padding: 10px;
   background: white;
   display: none;
-  position: fixed;
   right: 50%;
   top: 50%;
+}
+
+#selectForm {
+  display: none;
 }
