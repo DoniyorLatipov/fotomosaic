@@ -1,4 +1,17 @@
 @import url('/css/reset.css');
+@import url('/css/fonts.css');
+
+:root {
+  --base-font: 'Montserrat';
+  --color-1: #b2d9d8;
+  --color-back-1: #419f9c;
+  --color-2: #efc2c5;
+  --color-back-2: #be9699;
+  --color-3: #e5bfd8;
+  --color-back-3: #b697ab;
+  --color-4: #eeb170;
+  --color-back-4: #b78b5c;
+}
 
 .wrapper {
   display: flex;
@@ -14,8 +27,24 @@
   grid-template-columns: repeat(16, 1fr);
 }
 
-.saveTable {
-  width: 90cm;
+.header {
+  position: fixed;
+  height: 128px;
+  width: 100%;
+}
+
+.heading {
+  font-size: 48px;
+  font-family: var(--base-font);
+  font-weight: 600;
+}
+
+.header__wrapper {
+  max-width: 1500px;
+  padding: 40px 10px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 .pic {
@@ -42,4 +71,103 @@
 
 #selectForm {
   display: none;
+}
+
+/* basic start */
+.basic {
+  padding-left: 100px;
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+}
+
+#basicInput {
+  display: none;
+}
+
+#basicLabel {
+  font-size: 20px;
+  padding: 10px;
+  background: var(--color-1);
+  border-radius: 5px;
+  font-weight: 600;
+  border: 1px solid black;
+  font-family: var(--base-font);
+  margin-right: 40px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0px 6px 0px 0px var(--color-back-1), 0px 7px 0px 0px rgb(0, 0, 0);
+}
+
+#basicLabel:active {
+  transform: translateY(3px);
+  box-shadow: 0px 3px 0px 0px var(--color-back-1), 0px 4px 0px 0px rgb(0, 0, 0);
+}
+
+#basicLabel::after {
+  display: block;
+  position: absolute;
+  font-size: 16px;
+  content: '123 фото';
+  height: 20px;
+  padding: 2px;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid black;
+  border-bottom: none;
+  top: -25px;
+  background: var(--color-1);
+}
+
+#basicFill {
+  background: var(--color-2);
+  box-shadow: 0px 4px 0px 0px var(--color-back-2), 0px 5px 0px 0px rgb(0, 0, 0);
+}
+
+#basicFill:active {
+  transform: translateY(2px);
+  box-shadow: 0px 2px 0px 0px var(--color-back-2), 0px 3px 0px 0px rgb(0, 0, 0);
+}
+
+#basicRender {
+  background: var(--color-3);
+  box-shadow: 0px 4px 0px 0px var(--color-back-3), 0px 5px 0px 0px rgb(0, 0, 0);
+}
+
+#basicRender:active {
+  transform: translateY(2px);
+  box-shadow: 0px 2px 0px 0px var(--color-back-3), 0px 3px 0px 0px rgb(0, 0, 0);
+}
+
+.basicBtn {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  font-family: var(--base-font);
+  border: 1px solid black;
+}
+
+.basicBtn:not(:last-of-type) {
+  margin-right: 10px;
+}
+
+#selectMode {
+  margin-left: 150px;
+  background: var(--color-4);
+  border: none;
+  padding: 5px;
+  font-family: var(--base-font);
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 0px 4px 0px 0px var(--color-back-4), 0px 5px 0px 0px rgb(0, 0, 0);
+}
+
+#selectMode:active {
+  transform: translateY(2px);
+  box-shadow: 0px 2px 0px 0px var(--color-back-3), 0px 3px 0px 0px rgb(0, 0, 0);
+}
+
+.mode {
+  font-weight: 200;
+  font-family: sans-serif;
 }

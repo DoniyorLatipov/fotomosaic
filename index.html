@@ -8,28 +8,22 @@
   </head>
   <body>
     <header class="header">
-      <div class="wrapper">
-        <h1 class="title">Fotomosaic:</h1>
-        <form id="mainForm">
-          <input type="file" name="photos" id="inputImages" multiple />
-          <button type="button" id="fillBtn">fill photos</button>
-          <button type="button" id="renderBtn">render/work</button>
-          <select id="rowMode">
-            <option value="8 6">8 row (102, normal)</option>
-            <option value="9 7">9 row (133)</option>
-            <option value="10 8">10 row (126)</option>
-            <option value="11 9">11 row (138)</option>
-            <!-- <option value="30">30x40</option> -->
-          </select>
-          <button type="button" onclick="location.reload()">reset</button>
-        </form>
-        <form id="selectForm">
-          <input type="file" name="photos" id="changeInput" multiple />
-          <button type="button" id="changeBtn">fill photos</button>
-          <button type="button" id="deselectBtn">deselect</button>
-          <button type="button" id="clearBtn">clear</button>
-        </form>
-        <span id="counter"></span>
+      <div class="header__wrapper">
+        <h1 class="heading">Fotomosaic</h1>
+        <nav id="basic" class="basic">
+          <div class="basic__main-func">
+            <input type="file" id="basicInput" multiple />
+            <label for="basicInput" id="basicLabel">Выбрать фото</label>
+          </div>
+          <button type="button" id="basicFill" class="basicBtn">Заполнить</button>
+          <button type="button" id="basicRender" class="basicBtn">Рендер</button>
+        </nav>
+        <select id="selectMode">
+          <option value="0" class="mode">Заполнение</option>
+          <option value="1" class="mode">Формат</option>
+          <option value="2" class="mode">Выдиление</option>
+          <option value="3" class="mode">Перемещение</option>
+        </select>
       </div>
     </header>
     <main class="main">
