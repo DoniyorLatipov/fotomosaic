@@ -7,30 +7,142 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header class="header">
+    <header class="header" id="header">
       <div class="header__wrapper">
         <h1 class="heading">Fotomosaic</h1>
-        <nav id="basic" class="basic">
-          <div class="basic__main-func">
-            <input type="file" id="basicInput" multiple />
-            <label for="basicInput" id="basicLabel">Выбрать фото</label>
+        <nav id="basic" class="header__mode header__mode_active">
+          <div class="mode__main-func">
+            <input type="file" id="basicInput" class="file-input" multiple />
+            <label for="basicInput" id="basicLabel" class="file-label basic__label">
+              <span>Выбрать фото</span>
+              <span class="file-count basic__count"><b id="basicCounter">0</b> фото</span>
+            </label>
+            <button type="reset" id="basicReset" class="basic__reset file-reset">X</button>
           </div>
-          <button type="button" id="basicFill" class="basicBtn">Заполнить</button>
-          <button type="button" id="basicRender" class="basicBtn">Рендер</button>
+          <button type="button" id="basicFill" class="function-btn basic__fill">Заполнить</button>
+          <button type="button" id="basicRender" class="function-btn basic__render">Рендер</button>
+          <button type="button" id="basicMassReset" class="function-btn basic__mass-reset">
+            Сброс
+          </button>
         </nav>
-        <select id="selectMode">
-          <option value="0" class="mode">Заполнение</option>
-          <option value="1" class="mode">Формат</option>
-          <option value="2" class="mode">Выдиление</option>
-          <option value="3" class="mode">Перемещение</option>
-        </select>
+        <nav id="format" class="header__mode">
+          <div class="mode__main-func">
+            <div class="function-btn format__size">
+              <div class="input__wrapper">
+                <input type="number" id="formatHeight" class="format__input" value="90" min="1" />
+                <label for="formatHeight" class="format__label">СМ высоты</label>
+              </div>
+              <div class="input__wrapper">
+                <input type="number" id="formatWidth" class="format__input" value="60" min="1" />
+                <label for="formatWidth" class="format__label">СМ ширины</label>
+              </div>
+            </div>
+            <div class="function-btn format__pics">
+              <div class="input__wrapper">
+                <input type="number" id="formatColumns" class="format__input" value="8" min="1" />
+                <label for="formatColumns" class="format__label">фото в ряду</label>
+              </div>
+              <div class="input__wrapper">
+                <input type="number" id="formatRows" class="format__input" value="12" min="1" />
+                <label for="formatRows" class="format__label">рядов</label>
+              </div>
+            </div>
+          </div>
+          <span class="format__count-pic"><b id="formatPicsCounter">102</b> фото</span>
+          <button type="button" id="formatReset" class="format__reset">
+            <img
+              src="/ico/processing_2413460.png"
+              alt="reset"
+              height="18px"
+              width="18px"
+              class="format__reset-ico"
+            />
+          </button>
+        </nav>
+        <nav id="select" class="header__mode">
+          <input type="file" id="selectInput" class="file-input" multiple />
+          <div class="mode__main-func">
+            <label for="selectInput" id="selectLabel" class="file-label select__label">
+              <span>Выбрать фото</span>
+              <span class="file-count select__count"
+                ><b id="selectLoadedCounter">0</b> фото из <b id="selectCounter">0</b></span
+              >
+            </label>
+            <button type="reset" id="selectReset" class="file-reset select__reset">X</button>
+          </div>
+          <button type="button" id="selectFill" class="function-btn select__fill">Заменить</button>
+          <button type="button" id="deselectBtn" class="function-btn select__deselect">
+            Снять выделение
+          </button>
+          <button type="button" id="selectPicReset" class="function-btn select__pic-reset">
+            Очистить
+          </button>
+        </nav>
+        <nav id="move" class="header__mode">
+          <div class="move__instructions">
+            <div id="moveUpBtn" class="move__instruction move__instruction-up function-btn">
+              <img
+                src="/ico/letter-w_12222276.png"
+                alt="W"
+                class="move__pic"
+                height="40px"
+                width="40px"
+              /><span class="move__context">вверх</span>
+            </div>
+            <div id="moveDownBtn" class="move__instruction move__instruction-down function-btn">
+              <img
+                src="/ico/letter-s_12222226.png"
+                alt="S"
+                class="move__pic"
+                height="40px"
+                width="40px"
+              /><span class="move__context">вниз</span>
+            </div>
+            <div id="moveRightBtn" class="move__instruction move__instruction-right function-btn">
+              <img
+                src="/ico/letter-d_12222084.png"
+                alt="D"
+                class="move__pic"
+                height="40px"
+                width="40px"
+              /><span class="move__context">вправо</span>
+            </div>
+            <div id="moveleftBtn" class="move__instruction move__instruction-left function-btn">
+              <img
+                src="/ico/letter-a_12222060.png"
+                alt="A"
+                class="move__pic"
+                height="40px"
+                width="40px"
+              /><span class="move__context">влево</span>
+            </div>
+            <div class="move__drag-drop-instruction">
+              <img
+                src="/ico/drag-drop_6591195.png"
+                alt="drag-drop"
+                class="move__pic"
+                height="40px"
+                width="40px"
+              /><span class="move__context move__drag-drop-context">перетаскивайте фото</span>
+            </div>
+          </div>
+        </nav>
+        <div class="select">
+          <div id="selectBlock" class="select__block"></div>
+          <select id="selectMode" class="select__select">
+            <option value="0" class="select__mode" selected>Заполнение</option>
+            <option value="1" class="select__mode">Формат</option>
+            <option value="2" class="select__mode">Выдиление</option>
+            <option value="3" class="select__mode">Перемещение</option>
+          </select>
+        </div>
       </div>
     </header>
     <main class="main">
       <div class="wrapper">
-        <div id="table"></div>
+        <div id="table" class="table"></div>
       </div>
     </main>
   </body>
-  <script src="/js/index.js"></script>
+  <script type="module" src="/js/index.js"></script>
 </html>
