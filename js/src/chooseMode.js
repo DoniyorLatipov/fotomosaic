@@ -1,9 +1,12 @@
+import { activeSelectMode, deactivateSelectMode } from './modes/select.js';
+
 function selectMode() {
   const select = document.getElementById('selectMode');
 
   select.addEventListener('change', () => {
     const activeMode = document.querySelector('.header__mode_active');
     activeMode.classList.remove('header__mode_active');
+    deactivateSelectMode();
     switch (select.value) {
       case '0':
         const fillMode = document.getElementById('basic');
@@ -15,6 +18,7 @@ function selectMode() {
         break;
       case '2':
         const selectMode = document.getElementById('select');
+        activeSelectMode();
         selectMode.classList.add('header__mode_active');
         break;
       case '3':
