@@ -9,6 +9,12 @@ import {
   addRenderBtn,
   addMassResetBtn,
 } from './src/modes/basic.js';
+import {
+  addTableSizeTracker,
+  addPicsChangeTracker,
+  renderPicsCounter,
+  addFormatResetBtn,
+} from './src/modes/format.js';
 
 createTable();
 adjustTable();
@@ -20,3 +26,8 @@ addResetBtn();
 addFillBtn();
 addRenderBtn();
 addMassResetBtn();
+
+renderPicsCounter();
+addTableSizeTracker();
+addPicsChangeTracker();
+addFormatResetBtn();
