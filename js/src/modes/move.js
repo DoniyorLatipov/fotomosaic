@@ -14,24 +14,62 @@ function createPosition(el) {
   }
 }
 
+function moveUp(el) {
+  createPosition(el);
+  el.style.backgroundPositionY = `${parseInt(el.style.backgroundPositionY) + 10}%`;
+}
+
+function moveDown(el) {
+  createPosition(el);
+  el.style.backgroundPositionY = `${parseInt(el.style.backgroundPositionY) - 10}%`;
+}
+
+function moveLeft(el) {
+  createPosition(el);
+  el.style.backgroundPositionX = `${parseInt(el.style.backgroundPositionX) - 10}%`;
+}
+
+function moveRight(el) {
+  el.style.backgroundPositionX = `${parseInt(el.style.backgroundPositionX) + 10}%`;
+}
+
+function addInteractiveBtn(e) {
+  if (e.target.classList.contains('move__instruction')) {
+    const selected = document.querySelector('.pic__selected');
+    switch (e.target.id) {
+      case 'moveUpBtn':
+        moveUp(selected);
+        break;
+      case 'moveDownBtn':
+        moveDown(selected);
+        break;
+      case 'moveleftBtn':
+        moveLeft(selected);
+        break;
+      case 'moveRightBtn':
+        moveRight(selected);
+        break;
+      default:
+        break;
+    }
+  }
+}
+
 function addMoveSelected(e) {
   const selected = document.querySelector('.pic__selected');
+  console.log(e.code);
   switch (e.code) {
     case 'KeyW':
-      createPosition(selected);
-      selected.style.backgroundPositionY = `${parseInt(selected.style.backgroundPositionY) + 10}%`;
+      moveUp(selected);
       break;
     case 'KeyS':
-      createPosition(selected);
-      selected.style.backgroundPositionY = `${parseInt(selected.style.backgroundPositionY) - 10}%`;
+      moveDown(selected);
       break;
     case 'KeyA':
-      createPosition(selected);
-      selected.style.backgroundPositionX = `${parseInt(selected.style.backgroundPositionX) - 10}%`;
+      moveLeft(selected);
       break;
     case 'KeyD':
-      createPosition(selected);
-      selected.style.backgroundPositionX = `${parseInt(selected.style.backgroundPositionX) + 10}%`;
+      moveRight(selected);
       break;
     default:
       break;
@@ -123,14 +161,18 @@ function changePics(pic1, pic2) {
 }
 
 function activateMoveMode() {
+  const moveHeader = document.querySelector('.move__instructions');
   const table = document.getElementById('table');
+  moveHeader.addEventListener('click', addInteractiveBtn);
   table.addEventListener('click', addMovePicSelect);
   window.addEventListener('keydown', addMoveSelected);
   addDragDrop();
 }
 
 function deactivateMoveMode() {
+  const moveHeader = document.querySelector('.move__instructions');
   const table = document.getElementById('table');
+  moveHeader.removeEventListener('click', addInteractiveBtn);
   table.removeEventListener('click', addMovePicSelect);
   window.removeEventListener('keydown', addMoveSelected);
   removeDragDrop();

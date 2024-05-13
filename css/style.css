@@ -415,9 +415,14 @@
   display: flex;
 }
 
+.move__pic {
+  pointer-events: none;
+}
+
 .move__context {
   font-family: var(--base-font);
   font-size: 18px;
+  pointer-events: none;
 }
 
 .move__instruction {
