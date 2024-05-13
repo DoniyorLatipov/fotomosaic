@@ -15,6 +15,13 @@ import {
   renderPicsCounter,
   addFormatResetBtn,
 } from './src/modes/format.js';
+import {
+  addLoadTracker,
+  addResetBtn1,
+  addChangeBtn,
+  addDeselectBtn,
+  addPicReset,
+} from './src/modes/select.js';
 
 createTable();
 adjustTable();
@@ -31,3 +38,9 @@ renderPicsCounter();
 addTableSizeTracker();
 addPicsChangeTracker();
 addFormatResetBtn();
+
+addLoadTracker();
+addResetBtn1();
+addChangeBtn();
+addDeselectBtn();
+addPicReset();
