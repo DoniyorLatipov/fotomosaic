@@ -18,7 +18,7 @@ function selectMode() {
         break;
       case '2':
         const selectMode = document.getElementById('select');
-        activeSelectMode;
+        activeSelectMode();
         selectMode.classList.add('header__mode_active');
         break;
       case '3':
