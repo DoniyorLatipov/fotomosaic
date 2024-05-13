@@ -67,7 +67,7 @@ function addPicReset() {
 function activateSelectMode() {
   const pics = document.getElementsByClassName('pic');
   const table = document.getElementById('table');
-  Array.from(pics).forEach((pic) => pic.classList.ad('pic__deselected'));
+  Array.from(pics).forEach((pic) => pic.classList.add('pic__deselected'));
   table.addEventListener('click', addPicSelect);
 }
 
