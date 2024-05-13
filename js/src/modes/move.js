@@ -122,18 +122,18 @@ function changePics(pic1, pic2) {
   pic2.style.backgroundPosition = tempPosition;
 }
 
-function activeMoveMode() {
+function activateMoveMode() {
   const table = document.getElementById('table');
   table.addEventListener('click', addMovePicSelect);
   window.addEventListener('keydown', addMoveSelected);
   addDragDrop();
 }
 
-function deactiveMoveMode() {
+function deactivateMoveMode() {
   const table = document.getElementById('table');
   table.removeEventListener('click', addMovePicSelect);
   window.removeEventListener('keydown', addMoveSelected);
   removeDragDrop();
 }
 
-export { activeMoveMode, deactiveMoveMode };
+export { activateMoveMode, deactivateMoveMode };
